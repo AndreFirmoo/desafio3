@@ -1,0 +1,30 @@
+<label for="categoria" class="label">Selecione uma Categoria</label>
+<select id="categoria" (change)="selectOption($event.target.value)"  class="custom-select">
+  <option [value]=null disabled>Selecione uma Categoria</option>  
+  <option *ngFor="let item of categorias | async" [value]="item.id">{{item.nome}}</option>
+</select>
+
+<table class="table" aria-label="">
+    <thead class="table--head">
+        <th>
+            Origem
+        </th>
+        <th>
+            Mes
+        </th>
+        <th>Valor</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of list | async">
+            <td>
+                {{item.origem}} 
+            </td>
+            <td>
+                {{item.mes_lancamento}}
+            </td>
+            <td>
+                {{item.valor | currency :'R$'}}
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,24 @@
+<label for="mes" class="label">Selecione um mes</label>
+<select id="mes" (change)="selectOption($event.target.value)" class="custom-select">
+    <option [value]="0" >Selecione um Mes </option>
+    <option *ngFor="let item of numberOfMonth " [value]="item.id">{{item.mouth}}</option>
+  </select>
+
+<table class="table">
+    <thead class="table--head">
+        <th>
+            Origem
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>Valor</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of list | async" >
+            <td>{{item.origem}}</td>
+            <td>{{item.categoria}}</td>
+            <td>{{item.valor | currency:'R$'}}</td>
+        </tr>
+    </tbody>
+</table>
